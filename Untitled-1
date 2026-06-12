@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Delivery App Wireframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .mobile {
+            width: 320px;
+            border: 2px solid black;
+            background: white;
+            padding: 15px;
+        }
+
+        .screen {
+            border: 1px solid gray;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile">
+
+    <!-- Login Screen -->
+    <div class="screen">
+        <h3>Login</h3>
+        <input type="text" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+    </div>
+
+    <!-- Home Screen -->
+    <div class="screen">
+        <h3>Home</h3>
+        <input type="text" placeholder="Search Food">
+
+        <p><b>Categories</b></p>
+        <button>Pizza</button>
+        <button>Burger</button>
+        <button>Biryani</button>
+    </div>
+
+    <!-- Menu Screen -->
+    <div class="screen">
+        <h3>Restaurant Menu</h3>
+
+        <div class="item">
+            <span>Pizza - ₹200</span>
+            <button>Add</button>
+        </div>
+
+        <div class="item">
+            <span>Burger - ₹120</span>
+            <button>Add</button>
+        </div>
+
+        <div class="item">
+            <span>Biryani - ₹180</span>
+            <button>Add</button>
+        </div>
+    </div>
+
+    <!-- Cart Screen -->
+    <div class="screen">
+        <h3>Cart</h3>
+        <p>Pizza - ₹200</p>
+        <p>Burger - ₹120</p>
+        <p><b>Total: ₹320</b></p>
+        <button>Checkout</button>
+    </div>
+
+    <!-- Payment Screen -->
+    <div class="screen">
+        <h3>Payment</h3>
+        <input type="radio" name="pay"> UPI <br>
+        <input type="radio" name="pay"> Card <br>
+        <input type="radio" name="pay"> Cash on Delivery <br><br>
+        <button>Pay Now</button>
+    </div>
+
+    <!-- Tracking Screen -->
+    <div class="screen">
+        <h3>Order Tracking</h3>
+        <p>✓ Order Confirmed</p>
+        <p>✓ Preparing Food</p>
+        <p>✓ Out for Delivery</p>
+        <p>✓ Delivered</p>
+    </div>
+
+</div>
+
+</body>
+</html>
