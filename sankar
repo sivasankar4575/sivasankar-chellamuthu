@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Prototype</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.phone{
+    width:320px;
+    height:600px;
+    background:white;
+    border:3px solid #333;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+}
+
+.screen{
+    display:none;
+    padding:20px;
+    animation:fadeIn 0.4s;
+}
+
+.active{
+    display:block;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin-top:10px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="phone">
+
+```
+<div id="login" class="screen active">
+    <h2>Login</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="showScreen('home')">Login</button>
+</div>
+
+<div id="home" class="screen">
+    <h2>Home</h2>
+    <p>Welcome to the Prototype</p>
+    <button onclick="showScreen('profile')">Profile</button>
+    <button onclick="showScreen('settings')">Settings</button>
+</div>
+
+<div id="profile" class="screen">
+    <h2>Profile</h2>
+    <p>User Information</p>
+    <button onclick="showScreen('home')">Back</button>
+</div>
+
+<div id="settings" class="screen">
+    <h2>Settings</h2>
+    <p>Application Settings</p>
+    <button onclick="showScreen('home')">Back</button>
+</div>
+```
+
+</div>
+
+<script>
+function showScreen(screenId){
+
+    let screens = document.querySelectorAll('.screen');
+
+    screens.forEach(screen=>{
+        screen.classList.remove('active');
+    });
+
+    document.getElementById(screenId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
