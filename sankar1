@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usability Testing & Analysis</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container{
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align: center;
+    color: #2563eb;
+}
+
+label{
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+input, select, textarea{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #1d4ed8;
+}
+
+.report{
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background: #e8f5e9;
+    display: none;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td{
+    border: 1px solid #ccc;
+}
+
+th, td{
+    padding: 8px;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Usability Testing & Analysis</h1>
+
+<label>User Name</label>
+<input type="text" id="username" placeholder="Enter user name">
+
+<label>Task Tested</label>
+<input type="text" id="taskname" placeholder="Example: Login Process">
+
+<label>Task Completion</label>
+<select id="completion">
+    <option value="Completed">Completed</option>
+    <option value="Partially Completed">Partially Completed</option>
+    <option value="Failed">Failed</option>
+</select>
+
+<label>Ease of Use Rating (1-5)</label>
+<input type="number" id="rating" min="1" max="5">
+
+<label>User Feedback</label>
+<textarea id="feedback" rows="4"></textarea>
+
+<button onclick="generateReport()">Generate Report</button>
+
+<div class="report" id="report">
+    <h2>Usability Report</h2>
+    <table>
+        <tr>
+            <th>User</th>
+            <td id="rUser"></td>
+        </tr>
+        <tr>
+            <th>Task</th>
+            <td id="rTask"></td>
+        </tr>
+        <tr>
+            <th>Completion Status</th>
+            <td id="rCompletion"></td>
+        </tr>
+        <tr>
+            <th>Rating</th>
+            <td id="rRating"></td>
+        </tr>
+        <tr>
+            <th>Feedback</th>
+            <td id="rFeedback"></td>
+        </tr>
+        <tr>
+            <th>Analysis</th>
+            <td id="rAnalysis"></td>
+        </tr>
+        <tr>
+            <th>Improvement Suggestion</th>
+            <td id="rSuggestion"></td>
+        </tr>
+    </table>
+</div>
+
+</div>
+
+<script>
+function generateReport(){
+
+    let user = document.getElementById("username").value;
+    let task = document.getElementById("taskname").value;
+    let completion = document.getElementById("completion").value;
+    let rating = parseInt(document.getElementById("rating").value);
+    let feedback = document.getElementById("feedback").value;
+
+    let analysis = "";
+    let suggestion = "";
+
+    if(rating >= 4){
+        analysis = "Excellent usability and user satisfaction.";
+        suggestion = "Minor UI enhancements can be considered.";
+    }
+    else if(rating == 3){
+        analysis = "Good usability but some improvements are needed.";
+        suggestion = "Improve navigation and reduce user effort.";
+    }
+    else{
+        analysis = "Poor usability experience.";
+        suggestion = "Redesign workflow and simplify user interface.";
+    }
+
+    document.getElementById("rUser").innerText = user;
+    document.getElementById("rTask").innerText = task;
+    document.getElementById("rCompletion").innerText = completion;
+    document.getElementById("rRating").innerText = rating + "/5";
+    document.getElementById("rFeedback").innerText = feedback;
+    document.getElementById("rAnalysis").innerText = analysis;
+    document.getElementById("rSuggestion").innerText = suggestion;
+
+    document.getElementById("report").style.display = "block";
+}
+</script>
+
+</body>
+</html>
